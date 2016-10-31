@@ -360,7 +360,7 @@ function(controller) {
    }
 
 	if (selectedItms.length > 0) {
-      if(selectedItms[0].isDL !== true) //do not support noted on DL's
+      if(selectedItms[0].isDL !== true) //do not support notes on DL's
       {
          this.srcMsgObj = selectedItms[0];
          if (this.srcMsgObj.type == "CONV") {

@@ -170,7 +170,7 @@ function(postCallback, result) {
 			return this._stikyNotesMetaData;
 		}
 	} catch(ex) {
-		this._showErrorMessage(ex);
+		console.log('StickyNotesZimlet.prototype._handleGetStickyNotesMetaData'+ex);
 		return;
 	}
 };
@@ -344,18 +344,30 @@ function(app, toolbar, controller, view) {
  */
 StickyNotesZimlet.prototype._stickyTBListener =
 function(controller) {
-   try {
-	var selectedItms = controller.getCurrentView().getSelection();
-   } catch (err) {
-   var selectedItms = controller.getCurrentView().getListView().getSelection();
+   try 
+   {
+	   var selectedItms = controller.getCurrentView().getSelection();
+   } catch (err) 
+   {
+      try 
+      {
+         var selectedItms = controller.getCurrentView().getListView().getSelection();
+      } catch (err)
+      {
+         //seems we cannot get the selection
+      }
+         
    }
-   
+
 	if (selectedItms.length > 0) {
-		this.srcMsgObj = selectedItms[0];
-		if (this.srcMsgObj.type == "CONV") {
-			this.srcMsgObj = this.srcMsgObj.getFirstHotMsg();
-		}
-		this._createStickyNotes(this.srcMsgObj);
+      if(selectedItms[0].isDL !== true) //do not support noted on DL's
+      {
+         this.srcMsgObj = selectedItms[0];
+         if (this.srcMsgObj.type == "CONV") {
+            this.srcMsgObj = this.srcMsgObj.getFirstHotMsg();
+         }
+         this._createStickyNotes(this.srcMsgObj);
+      }
 	}
 };
 

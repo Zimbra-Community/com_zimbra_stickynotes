@@ -265,10 +265,8 @@ function(content) {
 	var html = new Array();
 	var i = 0;
 	html.push("<DIV id ='stickyn_actionContainerID' class='stickyn_axnClass'>",
-	"<table width='100%'><tr><td width='85%'></td><td width='5%'>",
-	"<img  style='cursor:pointer;' src=\"", this.getResource("sticky_deleteBtn.png"), "\" id='stickyn_deleteBtn' /></td>",
-	"<td width='5%'></td><td width='5%'><img  style='cursor:pointer;' src=\"", this.getResource("sticky_saveBtn.png"), "\" id='stickyn_closeBtn'/></td></tr>",
-	"</table></DIV>",
+	"<img  style='cursor:pointer;' src=\"", this.getResource("sticky_deleteBtn.png"), "\" id='stickyn_deleteBtn' />&nbsp;",
+	"<img  style='cursor:pointer;' src=\"", this.getResource("sticky_saveBtn.png"), "\" id='stickyn_closeBtn'/></DIV>",
 	"<TEXTAREA  id ='stickyn_textAreaID'class='stickyn_textAreaClass'>",
 	"</TEXTAREA>");
 

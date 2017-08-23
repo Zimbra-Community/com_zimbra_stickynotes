@@ -17,7 +17,3 @@ After enabling the Zimlet, a yellow-colored tag called "Emails with StickyNotes"
 **Searching (via Tags):**
 
 Users can search and keep track of all stickyNote emails by clicking on the tag or by searching for it in the main search bar.
-
-There's also a version [compatible with Zimbra 8.0 available][1].
-
- [1]: https://github.com/Zimbra-Community/adopted/releases/download/8.0/com_zimbra_stickynotes.zip

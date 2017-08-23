@@ -1,5 +1,5 @@
 # com_zimbra_stickynotes
-Add a sticky note to email messages, contacts and appointments
+Add a sticky note to email messages, contacts and appointments. Screenshot: https://filesgalleryzimbracom.s3.amazonaws.com/images/121/full/2017-03-09-10-48-54_58c133166d23d.png
 _This is the adopted version of the Sticky Notes zimlet by rrao_
   
 Lot of times when you are reading an email you get some thoughts like "oh I need to confirm dates", or "John's phone # is 650 350 1122" or "Need to include that PPT" etc that you want to remember. But there is no easy way to capture that thought.

@@ -219,16 +219,50 @@ function (trueOrFalse) {
  * Deletes StickyNotes content
  */
 StickyNotesZimlet.prototype._deleteSaveAndHideStickyNotes =
-function() {
+function() {   
+   this._deleteConfirmationDialog = new ZmDialog({
+      title: ZmMsg.confirmDeleteApptTitle,
+      parent: this.getShell(),
+      standardButtons: [DwtDialog.OK_BUTTON, DwtDialog.CANCEL_BUTTON],
+      disposeOnPopDown: true
+   });
+   var html = ZmMsg.confirmDeleteItemList;
+
+   this._deleteConfirmationDialog.setContent(html);
+   this._deleteConfirmationDialog.setButtonListener(DwtDialog.OK_BUTTON, new AjxListener(this, this._deleteSaveAndHideStickyNotesOKBtn));
+   this._deleteConfirmationDialog.setButtonListener(DwtDialog.CANCEL_BUTTON, new AjxListener(this, this._deleteSaveAndHideStickyNotesCancelBtn));
+   this._deleteConfirmationDialog._tabGroup.addMember(document.getElementById(this._deleteConfirmationDialog._button[1].__internalId));
+   this._deleteConfirmationDialog._tabGroup.addMember(document.getElementById(this._deleteConfirmationDialog._button[2].__internalId));
+   this._deleteConfirmationDialog._baseTabGroupSize = 2;        
+   this._deleteConfirmationDialog.popup();
+   if(this._getStickyContent() == ""){
+      //it's empty, delete w/o confirmation
+      this._deleteSaveAndHideStickyNotesOKBtn();
+   }
+};
+
+StickyNotesZimlet.prototype._deleteSaveAndHideStickyNotesOKBtn = 
+function () {
 	if (!this._mainContainer)
-		return;
+   {
+		this._deleteConfirmationDialog.popdown();
+      return;      
+   }   
 
 	this._saveStickyNotesDataToServer(this._itemId, "");
 
 	this._hideStickyNotes();
 	if (this.srcMsgObj.hasTag(this._tagName))
+   {
 		this._tagAction(false);
+   }
+   this._deleteConfirmationDialog.popdown();      
+};
 
+StickyNotesZimlet.prototype._deleteSaveAndHideStickyNotesCancelBtn = 
+function () {
+   this._hideStickyNotes();
+   this._deleteConfirmationDialog.popdown();
 };
 
 /**

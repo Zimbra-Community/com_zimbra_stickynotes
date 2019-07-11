@@ -360,8 +360,9 @@ function(app, toolbar, controller, view) {
 			text	: ZmMsg.stickyNotesLabel,
 			tooltip: ZmMsg.stickyNotesTip,
 			image: "stickynotes-panelIcon",
-            showImageInToolbar: true,
-            showTextInToolbar: false
+         showImageInToolbar: true,
+         showTextInToolbar: false,
+         enabled: false
 		};
 		if(!toolbar.getOp(StickyNotesZimlet.stickyNotes)) {
 			var button = toolbar.createZimletOp(StickyNotesZimlet.stickyNotes, buttonArgs);

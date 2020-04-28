@@ -1,5 +1,5 @@
 # com_zimbra_stickynotes
-Add a sticky note to email messages, contacts and appointments. 
+Add a sticky note to email messages, contacts and appointments. Tested on Zimbra 8.8.15.
 
 Screenshot: 
 ![Screenshot](https://filesgalleryzimbracom.s3.amazonaws.com/images/121/full/2017-03-09-10-48-54_58c133166d23d.png)

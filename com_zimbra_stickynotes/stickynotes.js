@@ -206,11 +206,11 @@ function (trueOrFalse) {
 
 	if (!appCtxt.getAccountTagList().getByName(this._tagName))
 		return;
-
     this.srcMsgObj.list.tagItems({
         items: this.srcMsgObj,
         tagName: this._tagName,
-        doTag: trueOrFalse
+        doTag: trueOrFalse,
+        tag: appCtxt.getAccountTagList().getByName(this._tagName)
     });
 
 };
